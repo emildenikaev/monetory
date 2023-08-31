@@ -37,6 +37,7 @@ label {
   pointer-events: none;
   font-size: 12px;
   line-height: 16px;
+  font-weight: 500;
   color: #862fde;
 }
 
@@ -46,6 +47,7 @@ label {
   line-height: 16px;
   color: #862fde;
   padding: 0 4px;
+  font-weight: 500;
   background-color: #fff;
 }
 
@@ -56,6 +58,7 @@ input {
   border: 2px solid #862fde;
   border-radius: 8px;
   color: #16171b;
+  font-weight: 500;
 }
 
 input:focus {

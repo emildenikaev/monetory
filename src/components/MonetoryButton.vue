@@ -33,6 +33,8 @@ const props = defineProps<Props>();
   size: 14px;
   line-height: 16px;
   padding: 8px 16px;
+  width: 110px;
+  font-weight: 400;
 
   &:hover {
     opacity: 0.8;
