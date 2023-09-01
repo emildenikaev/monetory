@@ -74,7 +74,7 @@
         <slot name="button" />
       </div>
     </div>
-    <div class="overlay"></div>
+    <div class="overlay" @click="closeModalOnOutsideClick"></div>
   </div>
 </template>
 
@@ -106,18 +106,29 @@ const deleteFromChoisenTags = (tag: string) => {
     localStorage.setItem("selectedTags", selectedTagsString);
   }
 };
+
+const closeModalOnOutsideClick = (event: MouseEvent) => {
+  if (
+    event.target instanceof HTMLElement &&
+    !event.target.closest(".modal-window")
+  ) {
+    tagStore.isModalOpen = false;
+  }
+};
 </script>
 
 <style scoped lang="scss">
 .modal-wrapper {
   display: flex;
   position: fixed;
-  width: 100%;
+  width: 100vw;
   min-height: 100%;
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.7);
   z-index: 100;
+  top: 0;
+  left: 0;
 }
 
 .overlay {

@@ -1,6 +1,12 @@
 <template>
   <main>
+    <MonetoryButton
+      :btn-text="`Нажми меня!`"
+      :btnColor="'purple'"
+      @click="tagStore.isModalOpen = true"
+    />
     <MonetoryModal
+      v-if="tagStore.isModalOpen"
       :modalMainText="'Добавление тегов'"
       :modalParagraph="'Вы можете добавить еще'"
       :modalParagraphCount="20"
@@ -21,7 +27,11 @@
           :btnColor="`purple`"
           @click="saveTagsToLocalStorage"
         />
-        <MonetoryButton :btnText="'Отмена'" :btnColor="`gray`" />
+        <MonetoryButton
+          :btnText="'Отмена'"
+          :btnColor="`gray`"
+          @click="tagStore.isModalOpen = false"
+        />
       </template>
     </MonetoryModal>
   </main>

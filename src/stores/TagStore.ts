@@ -4,6 +4,8 @@ import { ref, computed } from "vue";
 export const useTagStore = defineStore("tagStore", () => {
   const tagNames: string[] = [];
 
+  const isModalOpen: Boolean = false;
+
   const searchInput = ref<String>("");
 
   const choisenTags: string[] = [];
@@ -530,5 +532,6 @@ export const useTagStore = defineStore("tagStore", () => {
     searchInput,
     filteredTagNames,
     choisenTags,
+    isModalOpen,
   };
 });
