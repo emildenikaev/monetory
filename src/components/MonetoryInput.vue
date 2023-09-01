@@ -1,7 +1,7 @@
 <template>
   <div class="form-group">
-    <label :class="{ 'label-active': inputValue }">{{ label }}</label>
-    <input v-model="inputValue" type="text" />
+    <label :class="{ 'label-active': modelValue }">{{ label }}</label>
+    <input v-model="modelValue" @input="updateValue" type="text" />
   </div>
 </template>
 
@@ -9,19 +9,26 @@
 import { ref, watch } from "vue";
 
 interface Props {
-  value: String;
+  modelValue: String;
   label: String;
 }
 
 const props = defineProps<Props>();
-const inputValue = ref(props.value);
+const emit = defineEmits<{
+  (e: "update:modelValue", value: any): void;
+}>();
 
-watch(
-  () => props.value,
-  (newValue) => {
-    inputValue.value = newValue;
-  }
-);
+const modelValue = ref<String>(props.modelValue);
+
+watch(modelValue, (newValue) => {
+  emit("update:modelValue", newValue);
+});
+
+function updateValue(event: Event) {
+  const target = event.target as HTMLInputElement;
+  modelValue.value = target.value;
+  emit("update:modelValue", modelValue.value);
+}
 </script>
 
 <style>
