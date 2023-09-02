@@ -29,8 +29,8 @@
           <li
             v-for="tag in tagStore.filteredTagNames"
             :key="tag"
-            class="tag"
             @click="addToChoisenTags(tag)"
+            class="tag"
           >
             {{ tag }}
           </li>
@@ -57,8 +57,8 @@
           <li
             v-for="choisenTag in tagStore.choisenTags"
             :key="choisenTag"
-            class="tag"
             @click="deleteFromChoisenTags(choisenTag)"
+            class="tag"
           >
             {{ choisenTag }}
             <img
@@ -74,7 +74,7 @@
         <slot name="button" />
       </div>
     </div>
-    <div class="overlay" @click="closeModalOnOutsideClick"></div>
+    <div @click="closeModalOnOutsideClick" class="overlay"></div>
   </div>
 </template>
 
@@ -187,10 +187,10 @@ hr {
   margin-top: 24px;
   margin-bottom: 24px;
   display: flex;
-}
 
-.btn-container:first-child {
-  margin-right: 20px;
+  &:first-child {
+    margin-right: 20px;
+  }
 }
 
 .isModalTag {

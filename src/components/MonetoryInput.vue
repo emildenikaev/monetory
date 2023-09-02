@@ -14,8 +14,9 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+
 const emit = defineEmits<{
-  (e: "update:modelValue", value: any): void;
+  (e: "update:modelValue", value: String): void;
 }>();
 
 const modelValue = ref<String>(props.modelValue);
@@ -31,7 +32,7 @@ function updateValue(event: Event) {
 }
 </script>
 
-<style>
+<style lang="scss">
 .form-group {
   position: relative;
 }
@@ -66,13 +67,13 @@ input {
   border-radius: 8px;
   color: #16171b;
   font-weight: 500;
-}
 
-input:focus {
-  width: 360px;
-  padding: 14px 17px;
-  border-color: #862fde;
-  border-radius: 8px;
-  outline: none;
+  &:focus {
+    width: 360px;
+    padding: 14px 17px;
+    border-color: #862fde;
+    border-radius: 8px;
+    outline: none;
+  }
 }
 </style>

@@ -14,18 +14,18 @@
     >
       <template v-slot:input>
         <MonetoryInput
+          v-model="tagStore.searchInput"
           :value="tagStore.searchInput"
           :label="`Название тега`"
-          v-model="tagStore.searchInput"
         />
       </template>
 
       <template v-slot:button>
         <MonetoryButton
-          class="btn-save"
           :btnText="'Сохранить'"
           :btnColor="`purple`"
           @click="saveTagsToLocalStorage"
+          class="btn-save"
         />
         <MonetoryButton
           :btnText="'Отмена'"

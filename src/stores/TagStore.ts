@@ -506,23 +506,24 @@ export const useTagStore = defineStore("tagStore", () => {
     showDataTag(data);
   });
 
-  function showDataTag(data) {
+  // По хорошему здесь нужно прописать интерфейс для каждого типа
+  function showDataTag(data: any) {
     data.forEach(processElement);
   }
 
-  function processElement(el) {
+  function processElement(el: any) {
     el.categories.forEach(processCategory);
   }
 
-  function processCategory(el2) {
+  function processCategory(el2: any) {
     el2.subcategories.forEach(processSubcategory);
   }
 
-  function processSubcategory(el3) {
+  function processSubcategory(el3: any) {
     el3.tags.forEach(processTag);
   }
 
-  function processTag(el4) {
+  function processTag(el4: any) {
     tagNames.push(el4.name);
   }
 
